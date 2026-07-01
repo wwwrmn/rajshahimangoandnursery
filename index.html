@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ম্যাঙ্গো অ্যান্ড নার্সারি পোর্টফোলিও</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Anek+Bangla:wght@100..800&display=swap');
+        :root {
+            --primary: #2d6a4f;
+            --primary-light: #52b788;
+            --accent: #ffb703;
+            --whatsapp-green: #25D366;
+            --dark: #1b4332;
+            --light: #f8f9fa;
+            --text: #333333;
+            --gray: #e9ecef;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* --- গ্লোবাল রিসেট এবং স্টাইল --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: anek bangla;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--light);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* --- ন্যাভবার --- */
+        header {
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar {
+            max-width: 1200px;
+            margin: 0 auto;
+            height: 90px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 2rem;
+            position: relative;
+        }
+
+        .logo-link {
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            transition: var(--transition);
+        }
+
+        .logo-img {
+            height: 75px;
+            width: auto;
+            object-fit: contain;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2.5rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 600;
+            font-size: 1.05rem;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-light);
+        }
+
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: 5px;
+            z-index: 1002;
+        }
+
+        .menu-toggle span {
+            display: block;
+            width: 25px;
+            height: 3px;
+            background-color: var(--primary);
+            transition: var(--transition);
+        }
+
+        .menu-toggle.active span:nth-child(1) {
+            transform: rotate(45deg) translate(6px, 5px);
+        }
+        .menu-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+        .menu-toggle.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(6px, -5px);
+        }
+
+        .nav-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(3px);
+            z-index: 1000;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .nav-overlay.active {
+            display: block;
+            opacity: 1;
+        }
+
+        /* --- হিরো সেকশন --- */
+        .hero {
+            background: linear-gradient(rgba(27, 67, 50, 0.85), rgba(27, 67, 50, 0.95)), 
+                        url('https://images.unsplash.com/photo-1592417817098-8f3d6eb19675?auto=format&fit=crop&q=80&w=1200') center/cover;
+            color: white;
+            padding: 8rem 2rem;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            max-width: 800px;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            max-width: 600px;
+            margin: 0 auto 2.5rem;
+            color: #d8f3dc;
+        }
+
+        .btn {
+            background-color: var(--accent);
+            color: var(--dark);
+            padding: 0.8rem 2.5rem;
+            border: none;
+            border-radius: 30px;
+            font-weight: bold;
+            cursor: pointer;
+            text-decoration: none;
+            transition: var(--transition);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+        }
+
+        .btn:hover {
+            background-color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+        }
+
+        /* --- রেসপন্সিভ লেআউট সেকশন --- */
+        .section {
+            padding: 5rem 1.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            color: var(--dark);
+            margin-bottom: 2.5rem;
+        }
+
+        .filter-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 0.8rem;
+            margin-bottom: 3.5rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            background: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            padding: 0.6rem 1.8rem;
+            cursor: pointer;
+            border-radius: 25px;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .filter-btn.active, .filter-btn:hover {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 2.5rem;
+            width: 100%;
+        }
+
+        /* 🖱️ গ্যালারি কার্ডগুলোকে ক্লিকেবল লিঙ্ক করার জন্য প্রয়োজনীয় পরিবর্তন */
+        .gallery-item {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            text-decoration: none; /* লিঙ্কের ডিফল্ট আন্ডারলাইন দূর করার জন্য */
+            color: inherit; /* প্যারেন্ট টেক্সট কালার বজায় রাখার জন্য */
+            cursor: pointer;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+        }
+
+        .item-img {
+            width: 100%;
+            height: 220px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 1.25rem;
+        }
+
+        .item-info {
+            padding: 1.8rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.6rem;
+            flex-grow: 1;
+        }
+
+        .item-title {
+            font-size: 1.3rem;
+            color: var(--dark);
+            transition: var(--transition);
+        }
+
+        /* কার্ডের উপর হোভার করলে শুধু টাইটেলের রঙ পরিবর্তন হবে */
+        .gallery-item:hover .item-title {
+            color: var(--primary-light);
+        }
+
+        .gallery-item p {
+            color: #555555;
+            font-size: 0.95rem;
+        }
+
+        .item-tag {
+            align-self: flex-start;
+            background-color: #d8f3dc;
+            color: var(--primary);
+            padding: 0.25rem 0.6rem;
+            font-size: 0.8rem;
+            font-weight: bold;
+            border-radius: 4px;
+        }
+
+        /* --- খরচ ক্যালকুলেটর --- */
+        .calculator-box {
+            background: white;
+            border-radius: 16px;
+            padding: 2.5rem;
+            box-shadow: 0 4px 25px rgba(0,0,0,0.05);
+            max-width: 600px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .form-group {
+            margin-bottom: 1.8rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.6rem;
+            font-weight: 600;
+            color: var(--dark);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #cccccc;
+            border-radius: 6px;
+            background: var(--light);
+            font-size: 1rem;
+        }
+
+        input[type="range"] {
+            accent-color: var(--primary);
+        }
+
+        .price-display {
+            background: var(--gray);
+            padding: 1.5rem;
+            border-radius: 8px;
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        .price-display span {
+            font-size: 2.2rem;
+            font-weight: bold;
+            color: var(--primary);
+            display: block;
+        }
+
+        /* --- হোয়াটসঅ্যাপ অর্ডার সেকশন --- */
+        .whatsapp-section {
+            background-color: #e5ddd5;
+            background-image: url('https://user-images.githubusercontent.com/15075759/28719144-86dc0f70-73b1-11e7-911d-60d70fcded21.png');
+            padding: 4.5rem 1.5rem;
+            text-align: center;
+            width: 100%;
+        }
+
+        .whatsapp-container {
+            background: white;
+            max-width: 550px;
+            margin: 0 auto;
+            padding: 2.5rem 2rem;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.2rem;
+        }
+
+        .whatsapp-icon {
+            width: 70px;
+            height: 70px;
+            fill: var(--whatsapp-green);
+        }
+
+        .whatsapp-container h3 {
+            font-size: 1.8rem;
+            color: var(--dark);
+        }
+
+        .whatsapp-container p {
+            color: #555555;
+            font-size: 1.05rem;
+            max-width: 400px;
+        }
+
+        .whatsapp-btn {
+            background-color: var(--whatsapp-green);
+            color: white;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 0.9rem 2.2rem;
+            border-radius: 30px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            text-decoration: none;
+            transition: var(--transition);
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+        }
+
+        .whatsapp-btn:hover {
+            background-color: #128C7E;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(18, 140, 126, 0.4);
+        }
+
+        /* --- ফ্লোটিং ব্যাক টু টপ বাটন --- */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background-color: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            z-index: 999;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(20px);
+            transition: var(--transition);
+        }
+
+        .back-to-top.show {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .back-to-top:hover {
+            background-color: var(--accent);
+            color: var(--dark);
+            transform: translateY(-5px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .back-to-top svg {
+            width: 24px;
+            height: 24px;
+            fill: currentColor;
+            transition: var(--transition);
+        }
+
+        footer {
+            background-color: var(--dark);
+            color: white;
+            text-align: center;
+            padding: 2.5rem 1rem;
+        }
+
+        /* ==========================================================
+           📱 রেসপন্সিভ মিডিয়া কোয়েরি
+           ========================================================== */
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 0 1.5rem;
+            }
+
+            .logo-img {
+                height: 60px;
+            }
+
+            .menu-toggle {
+                display: flex;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -280px;
+                width: 280px;
+                height: 100vh;
+                background-color: white;
+                box-shadow: -5px 0 25px rgba(0,0,0,0.15);
+                flex-direction: column;
+                padding: 100px 1.5rem 2rem 1.5rem;
+                gap: 0;
+                z-index: 1001;
+                transition: var(--transition);
+            }
+
+            .nav-links.active {
+                right: 0;
+            }
+
+            .nav-links li {
+                width: 100%;
+                opacity: 0;
+                transform: translateX(20px);
+                transition: var(--transition);
+            }
+
+            .nav-links.active li {
+                opacity: 1;
+                transform: translateX(0);
+            }
+            .nav-links.active li:nth-child(1) { transition-delay: 0.1s; }
+            .nav-links.active li:nth-child(2) { transition-delay: 0.15s; }
+            .nav-links.active li:nth-child(3) { transition-delay: 0.2s; }
+            .nav-links.active li:nth-child(4) { transition-delay: 0.25s; }
+
+            .nav-links a {
+                display: block;
+                padding: 1rem;
+                text-align: left;
+                border-bottom: 1px solid var(--gray);
+                font-size: 1.1rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .section {
+                padding: 3.5rem 1rem;
+            }
+
+            .whatsapp-container {
+                padding: 2rem 1rem;
+            }
+
+            .back-to-top {
+                bottom: 20px;
+                right: 20px;
+                width: 45px;
+                height: 45px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="nav-overlay" id="overlay" onclick="closeMenu()"></div>
+
+    <a href="#hero" class="back-to-top" id="backToTopBtn" title="উপরে যান">
+        <svg viewBox="0 0 24 24">
+            <path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"/>
+        </svg>
+    </a>
+
+    <!-- রেসপন্সিভ ন্যাভবার -->
+    <header>
+        <nav class="navbar">
+            <a href="#hero" class="logo-link" onclick="closeMenu()" title="হোমে ফিরে যান">
+                <img src="1.png" class="logo-img">
+            </a>
+            
+            <button class="menu-toggle" id="mobile-menu" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <ul class="nav-links" id="nav-list">
+                <li><a href="#hero" onclick="closeMenu()">হোম</a></li>
+                <li><a href="#portfolio" onclick="closeMenu()">আমাদের কালেকশন</a></li>
+                <li><a href="#estimator" onclick="closeMenu()">খরচ হিসাবকারী</a></li>
+                <li><a href="#contact" onclick="closeMenu()">অর্ডার করুন</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- হিরো সেকশন -->
+    <section id="hero" class="hero">
+        <h1>উন্নত জাতের আমের চারা ও আকর্ষণীয় ইনডোর প্ল্যান্ট</h1>
+        <p>আমরা শতভাগ গ্যারান্টিসহ মাতৃগাছ থেকে সংগৃহীত কলম চারা এবং শোভাবর্ধনকারী উদ্ভিদের বিশ্বস্ত সরবরাহকারী।</p>
+        <a href="#portfolio" class="btn">চারাগুলো দেখুন</a>
+    </section>
+
+    <!-- পোর্টফোলিও গ্যালারি সেকশন -->
+    <section id="portfolio" class="section">
+        <h2 class="section-title">আমাদের বিশেষ কালেকশন</h2>
+        
+        <div class="filter-buttons">
+            <button class="filter-btn active" onclick="filterItems('all')">সব চারা</button>
+            <button class="filter-btn" onclick="filterItems('mango')">আমের জাতসমূহ</button>
+            <button class="filter-btn" onclick="filterItems('plant')">শোভাবর্ধনকারী গাছ</button>
+        </div>
+
+        <div class="gallery-grid" id="gallery">
+            
+            <!-- 🔗 লিংক ১: আম্রপালি (href="details-amrapali.html" পরিবর্তনযোগ্য) -->
+            <a href="details-amrapali.html" class="gallery-item" data-category="mango">
+                <div class="item-img" style="background: #e29578;">আম্রপালি আমের চারা</div>
+                <div class="item-info">
+                    <span class="item-tag">আমের চারা</span>
+                    <h3 class="item-title">আম্রপালি হাইব্রিড কলম</h3>
+                    <p>ঘন রোপণের জন্য উপযোগী। এটি অত্যন্ত মিষ্টি, সুস্বাদু এবং বাণিজ্যিকভাবে অত্যন্ত লাভজনক একটি জাত।</p>
+                </div>
+            </a>
+
+            <!-- 🔗 লিংক ২: হাড়িভাঙ্গা (href="details-harivanga.html" পরিবর্তনযোগ্য) -->
+            <a href="details-harivanga.html" class="gallery-item" data-category="mango">
+                <div class="item-img" style="background: #ffb703;">হাড়িভাঙ্গা আমের চারা</div>
+                <div class="item-info">
+                    <span class="item-tag">আমের চারা</span>
+                    <h3 class="item-title">হাড়িভাঙ্গা প্রিমিয়াম</h3>
+                    <p>আঁশহীন, সুমিষ্ট এবং মাংসল আঁটি। বাণিজ্যিক চাষাবাদের জন্য কৃষকদের প্রথম পছন্দ।</p>
+                </div>
+            </a>
+
+            <!-- 🔗 লিংক ৩: অ্যারিকা পাম (href="details-areca-palm.html" পরিবর্তনযোগ্য) -->
+            <a href="details-areca-palm.html" class="gallery-item" data-category="plant">
+                <div class="item-img" style="background: #2a9d8f;">অ্যারিকা পাম</div>
+                <div class="item-info">
+                    <span class="item-tag">ইনডোর প্ল্যান্ট</span>
+                    <h3 class="item-title">অ্যারিকা পাম (Areca Palm)</h3>
+                    <p>বাতাস পরিশোধনকারী চমৎকার ইনডোর প্ল্যান্ট। বাড়ি বা অফিসের সৌন্দর্য বৃদ্ধিতে অতুলনীয়。</p>
+                </div>
+            </a>
+
+            <!-- 🔗 লিংক ৪: অ্যাডেনিয়াম বনসাই (href="details-bonsai.html" পরিবর্তনযোগ্য) -->
+            <a href="details-bonsai.html" class="gallery-item" data-category="plant">
+                <div class="item-img" style="background: #457b9d;">অ্যাডেনিয়াম বনসাই</div>
+                <div class="item-info">
+                    <span class="item-tag">বনসাই</span>
+                    <h3 class="item-title">THAI অ্যাডেনিয়াম ডেজার্ট রোজ</h3>
+                    <p>বীজ থেকে তৈরি আকর্ষণীয় কডেক্স এবং উজ্জ্বল গোলাপি ফুলসহ একটি আকর্ষণীয় বনসাই প্ল্যান্ট।</p>
+                </div>
+            </a>
+            
+        </div>
+    </section>
+
+    <!-- খরচ হিসাবকারী সেকশন -->
+    <section id="estimator" class="section" style="background: var(--gray); max-width: 100%;">
+        <h2 class="section-title">পাইকারি অর্ডার খরচ হিসাবকারী</h2>
+        <div class="calculator-box">
+            <div class="form-group">
+                <label for="treeType">চারার ধরন নির্বাচন করুন</label>
+                <select id="treeType" class="form-control" onchange="calculateCost()">
+                    <option value="150">আমের সাধারণ কলম চারা (৳১৫০ / পিস)</option>
+                    <option value="350">বড় সাইজের আমের মাতৃগাছ (৳৩৫০ / পিস)</option>
+                    <option value="120">ইনডোর ও শোভাবর্ধনকারী গাছ (৳১২০ / পিস)</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="quantity">চারার সংখ্যা (<span id="qtyLabel">১০</span> টি)</label>
+                <input type="range" id="quantity" min="5" max="500" value="10" step="5" class="form-control" oninput="calculateCost()">
+            </div>
+            <div class="price-display">
+                <p>আনুমানিক মোট খরচ (প্যাকিং ও ডেলিভারিসহ):</p>
+                <span id="totalPrice">৳১,৫০০</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- হোপাটসঅ্যাপ অর্ডার সেকশন -->
+    <section id="contact" class="whatsapp-section">
+        <div class="whatsapp-container">
+            <svg class="whatsapp-icon" viewBox="0 0 24 24">
+                <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397 0 11.948 0c3.179.001 6.161 1.24 8.402 3.486 2.243 2.246 3.48 5.23 3.475 8.411-.011 6.597-5.348 11.943-11.9 11.943-2.004-.001-3.973-.507-5.714-1.478L0 24zm6.59-4.846c1.6.95 3.188 1.449 4.743 1.451 5.416 0 9.822-4.381 9.83-9.764.004-2.605-.1-5.056-1.933-6.89C17.396 2.116 14.883 1.002 11.95 1c-5.424 0-9.83 4.396-9.837 9.783-.002 1.77.472 3.435 1.4 4.903L2.43 21.753l6.217-1.63zM17.436 14.19c-.326-.165-1.933-.956-2.231-1.064-.297-.11-.513-.165-.73.164-.216.33-.837 1.063-1.026 1.28-.19.215-.377.243-.703.078-.327-.164-1.38-.509-2.63-1.627-.972-.867-1.627-1.939-1.819-2.267-.19-.329-.02-.507.144-.671.148-.148.327-.382.49-.574.162-.192.216-.328.325-.546.11-.219.054-.41-.027-.573-.082-.164-.73-1.759-.999-2.408-.262-.634-.529-.548-.727-.558-.188-.008-.405-.01-.622-.01s-.568.081-.865.41c-.297.328-1.136 1.11-1.136 2.707 0 1.596 1.163 3.136 1.325 3.355.162.219 2.289 3.497 5.545 4.902.774.334 1.378.534 1.849.684.777.247 1.484.212 2.043.129.623-.093 1.933-.791 2.204-1.559.271-.767.271-1.422.19-1.557-.083-.137-.298-.219-.624-.383z"/>
+            </svg>
+            <h3>সরাসরি হোয়াটসঅ্যাপে অর্ডার করুন</h3>
+            <p>আপনার পছন্দের চারা অর্ডার করতে অথবা যেকোনো পরামর্শের জন্য নিচের বাটনে ক্লিক করে আমাদের সাথে যোগাযোগ করুন।</p>
+            <a href="https://wa.me/8801733724364?text=হ্যালো,%20আমি%20আপনাদের%20পেজ%20থেকে%20কিছু%20অর্ডার%20করতে%20চাই।" target="_blank" class="whatsapp-btn">
+                হোয়াটসঅ্যাপ করুন
+            </a>
+        </div>
+    </section>
+
+    <!-- ফুটার -->
+    <footer>
+        <p>&copy; ২০২৬ ম্যাঙ্গো নার্সারি অ্যান্ড ল্যান্ডস্কেপ সার্ভিস। সর্বস্বত্ব সংরক্ষিত।</p>
+    </footer>
+
+    <script>
+        // --- রেসপন্সিভ সাইডবার লজিক ---
+        const mobileMenu = document.getElementById('mobile-menu');
+        const navList = document.getElementById('nav-list');
+        const overlay = document.getElementById('overlay');
+
+        mobileMenu.addEventListener('click', () => {
+            mobileMenu.classList.toggle('active');
+            navList.classList.toggle('active');
+            overlay.classList.toggle('active');
+        });
+
+        function closeMenu() {
+            mobileMenu.classList.remove('active');
+            navList.classList.remove('active');
+            overlay.classList.remove('active');
+        }
+
+        // --- ਫਲੋਟਿੰਗ ਬੈਕ ਟੂ ਟੌਪ ---
+        const backToTopBtn = document.getElementById('backToTopBtn');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTopBtn.classList.add('show');
+            } else {
+                backToTopBtn.classList.remove('show');
+            }
+        });
+
+        // --- গ্যালারি ফিল্টার লজিক ---
+        function filterItems(category) {
+            const buttons = document.querySelectorAll('.filter-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+            
+            if(event && event.target) {
+                event.target.classList.add('active');
+            }
+
+            const items = document.querySelectorAll('.gallery-item');
+            items.forEach(item => {
+                if (category === 'all' || item.getAttribute('data-category') === category) {
+                    item.style.display = 'flex';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
+
+        // --- খরচ ক্যালকুলেটর লজিক ---
+        function calculateCost() {
+            const unitPrice = parseFloat(document.getElementById('treeType').value);
+            const quantity = parseInt(document.getElementById('quantity').value);
+            
+            document.getElementById('qtyLabel').innerText = quantity;
+
+            let grandTotal = unitPrice * quantity;
+            if(quantity >= 50) {
+                grandTotal = grandTotal * 0.9;
+            }
+
+            document.getElementById('totalPrice').innerText = '৳' + grandTotal.toLocaleString('bn-BD');
+        }
+
+        window.onload = calculateCost;
+    </script>
+</body>
+</html>
