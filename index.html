@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ম্যাঙ্গো অ্যান্ড নার্সারি পোর্টফোলিও</title>
+    <title>রাজশাহী ম্যাঙ্গো & নার্সারি</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Anek+Bangla:wght@100..800&display=swap');
         :root {
@@ -354,6 +355,8 @@
             padding: 4.5rem 1.5rem;
             text-align: center;
             width: 100%;
+            height: 88vh;
+            margin-top: 30px;
         }
 
         .whatsapp-container {
@@ -367,6 +370,7 @@
             flex-direction: column;
             align-items: center;
             gap: 1.2rem;
+            margin-top: 25px;
         }
 
         .whatsapp-icon {
@@ -498,9 +502,14 @@
     font-size: 14px;
 }
 
+.c-section{
+    margin-bottom: 50px;
+    padding: 30px;
+}
+
+
 #photos {
     display: grid;
-    /* ৩টি সমান কলাম */
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 20px;
     padding: 20px;
@@ -525,7 +534,7 @@
     transform: scale(1.05); /* মাউস নিলে সামান্য জুম হবে */
 }
 
-/* মডাল ব্যাকগ্রাউন্ড */
+
 .modal {
     display: none; 
     position: fixed; top: 0; left: 0; width: 100%; height: 100%;
@@ -654,6 +663,10 @@
             margin-bottom: 2.5rem;
         }
 
+        .whatsapp-section{
+            height: 95vh;
+        }
+
             .whatsapp-container {
                 padding: 2rem 1rem;
             }
@@ -702,7 +715,7 @@
 
     <!-- হিরো সেকশন -->
     <section id="hero" class="hero">
-        <h1>উন্নত জাতের আমের চারা ও আকর্ষণীয় ইনডোর প্ল্যান্ট</h1>
+        <h1>উন্নত জাতের চারা ও আকর্ষণীয় <br>ইনডোর প্ল্যান্ট</h1>
         <p>আমরা শতভাগ গ্যারান্টিসহ মাতৃগাছ থেকে সংগৃহীত কলম চারা এবং শোভাবর্ধনকারী উদ্ভিদের বিশ্বস্ত সরবরাহকারী।</p>
         <a href="#portfolio" class="btn">চারাগুলো দেখুন</a>
     </section>
@@ -713,9 +726,12 @@
         
         <div class="filter-buttons">
             <button class="filter-btn active" onclick="filterItems('all')">সব চারা</button>
-            <button class="filter-btn" onclick="filterItems('mango')">আমের জাতসমূহ</button>
+            <button class="filter-btn" onclick="filterItems('mango')">আম গাছ</button>
             <button class="filter-btn" onclick="filterItems('Guava')">পেয়ারা গাছ</button>
             <button class="filter-btn" onclick="filterItems('dalim')">ডালিম গাছ</button>
+            <button class="filter-btn" onclick="filterItems('coconut')">নারকেল গাছ</button>
+            <button class="filter-btn" onclick="filterItems('malta')">মাল্টা গাছ</button>
+            <button class="filter-btn" onclick="filterItems('flower')">ফুল গাছ</button>
         </div>
 
         <div class="gallery-grid" id="gallery">
@@ -725,8 +741,8 @@
                 <div class="item-img" style="background-image: url(mango1.png);"></div>
                 <div class="item-info">
                     <span class="item-tag">আমের চারা</span>
-                    <h3 class="item-title">আম্রপালি হাইব্রিড কলম</h3>
-                    <p>ঘন রোপণের জন্য উপযোগী। এটি অত্যন্ত মিষ্টি, সুস্বাদু এবং বাণিজ্যিকভাবে অত্যন্ত লাভজনক একটি জাত।</p>
+                    <h3 class="item-title">আম্রপালি হাইব্রিড</h3>
+                    <p>ঘন রোপণের জন্য উপযোগী। এটি অত্যন্ত মিষ্টি, ও বাণিজ্যিকভাবে অত্যন্ত লাভজনক একটি জাত।</p>
                 </div>
             </a>
 
@@ -750,39 +766,57 @@
                 </div>
             </a>
 
-            <!-- 🔗 লিংক ৪: অ্যাডেনিয়াম বনসাই (href="details-bonsai.html" পরিবর্তনযোগ্য) -->
             <a href="details-bonsai.html" class="gallery-item" data-category="dalim">
                 <div class="item-img" style="background-image: url(dalim1.png);"></div>
                 <div class="item-info">
-                    <span class="item-tag">বনসাই</span>
-                    <h3 class="item-title">THAI অ্যাডেনিয়াম ডেজার্ট রোজ</h3>
-                    <p>বীজ থেকে তৈরি আকর্ষণীয় কডেক্স এবং উজ্জ্বল গোলাপি ফুলসহ একটি আকর্ষণীয় বনসাই প্ল্যান্ট।</p>
+                    <span class="item-tag">আনার/ডালিম</span>
+                    <h3 class="item-title">সুপার ভাগোয়া ডালিম</h3>
+                    <p>রোগবালাই প্রতিরোধী ও প্রতিকূল আবহাওয়ায় টিকে থাকতে পারে। দানাগুলো বড় ও অত্যন্ত মিষ্টি</p>
                 </div>
             </a>
 
-            <a href="details-bonsai.html" class="gallery-item" data-category="anar">
-                <div class="item-img" style="background-image: url(i.jpg);"></div>
+            <a href="details-bonsai.html" class="gallery-item" data-category="coconut">
+                <div class="item-img" style="background-image: url(coconut1.png);"></div>
                 <div class="item-info">
-                    <span class="item-tag">বনসাই</span>
-                    <h3 class="item-title">THAI অ্যাডেনিয়াম ডেজার্ট রোজ</h3>
-                    <p>বীজ থেকে তৈরি আকর্ষণীয় কডেক্স এবং উজ্জ্বল গোলাপি ফুলসহ একটি আকর্ষণীয় বনসাই প্ল্যান্ট।</p>
+                    <span class="item-tag">নারকেল চারা </span>
+                    <h3 class="item-title">হাইব্রিড জাতের নারিকেল</h3>
+                    <p>খুবই উচ্চফলনশীল জাত ও রোপণের ২.৫ থেকে ৩ বছরের মধ্যেই গাছে নারিকেল আসা শুরু করে।</p>
                 </div>
             </a>
 
-            <a href="details-bonsai.html" class="gallery-item" data-category="anar">
-                <div class="item-img" style="background-image: url(i.jpg);"></div>
+            <a href="details-bonsai.html" class="gallery-item" data-category="malta">
+                <div class="item-img" style="background-image: url(malta1.png);"></div>
                 <div class="item-info">
-                    <span class="item-tag">বনসাই</span>
-                    <h3 class="item-title">THAI অ্যাডেনিয়াম ডেজার্ট রোজ</h3>
-                    <p>বীজ থেকে তৈরি আকর্ষণীয় কডেক্স এবং উজ্জ্বল গোলাপি ফুলসহ একটি আকর্ষণীয় বনসাই প্ল্যান্ট।</p>
+                    <span class="item-tag">মাল্টা চারা গাছ</span>
+                    <h3 class="item-title">বারি মাল্টা-১</h3>
+                    <p>উচ্চ ফলনশীল জাত। চারা রোপণের ২-৩ বছরের মধ্যেই গাছে ফল আসা শুরু করে।</p>
+                </div>
+            </a>
+
+            
+            <a href="details-bonsai.html" class="gallery-item" data-category="flower">
+                <div class="item-img" style="background-image: url(flower1.png);"></div>
+                <div class="item-info">
+                    <span class="item-tag">ফুল</span>
+                    <h3 class="item-title">কসমস চারা</h3>
+                    <p>দ্রুত বর্ধনশীল এবং খুব সহজেই বীজ থেকে জন্মানো যায়।</p>
                 </div>
             </a>
             
+            <a href="details-bonsai.html" class="gallery-item" data-category="flower">
+                <div class="item-img" style="background-image: url(flower2.png);"></div>
+                <div class="item-info">
+                    <span class="item-tag">ফুল</span>
+                    <h3 class="item-title">হাজারি গোলাপ</h3>
+                    <p>বীজ থেকে তৈরি আকর্ষণীয় এবং উজ্জ্বল গোলাপি ফুলসহ আকর্ষণীয় হাজারি গোলাপ প্ল্যান্ট।</p>
+                </div>
+            </a>
+
         </div>
     </section>
 
     <!-- খরচ হিসাবকারী সেকশন -->
-    <section id="estimator" class="section" style="background: var(--gray); max-width: 100%;">
+    <section id="estimator" class="c-section" style="background: var(--gray); max-width: 100%;">
         <h2 class="section-title">পাইকারি অর্ডার খরচ হিসাবকারী</h2>
         <div class="calculator-box">
             <div class="form-group">
@@ -809,9 +843,12 @@
     <div class="gallery-item"><img src="mango2.png" alt="Plant 2"></div>
     <div class="gallery-item"><img src="Guava1.png" alt="Plant 3"></div>
     <div class="gallery-item"><img src="dalim1.png" alt="Plant 4"></div>
-    <div class="gallery-item"><img src="image5.jpg" alt="Plant 5"></div>
-    <div class="gallery-item"><img src="image6.jpg" alt="Plant 6"></div>
+    <div class="gallery-item"><img src="coconut1.png" alt="Plant 5"></div>
+    <div class="gallery-item"><img src="malta1.png" alt="Plant 6"></div>
+    <div class="gallery-item"><img src="flower1.png" alt="Plant 6"></div>
+    <div class="gallery-item"><img src="flower2.png" alt="Plant 6"></div>
 </section>
+
 
     <!-- হোপাটসঅ্যাপ অর্ডার সেকশন -->
     <section id="contact" class="whatsapp-section">
@@ -840,34 +877,44 @@
 </div>
 
 
-   <footer class="footer">
+  <footer class="footer">
     <div class="footer-container">
         <!-- ১. লোগো ও বর্ণনা -->
         <div class="footer-section">
             <img src="1.png" alt="Logo" style="width: 180px;">
-            <p>আপনার বাগানের বিশ্বস্ত সঙ্গী। আমরা সেরা মানের আমের চারা এবং ইনডোর প্ল্যান্ট সরবরাহ করি।</p>
+            <p>আপনার বাগানের বিশ্বস্ত সঙ্গী। আমরা সেরা মানের চারা এবং ফলমূল সরবরাহ করি।</p>
         </div>
 
         <!-- ২. কুইক লিংক -->
         <div class="footer-section">
             <h3>কুইক লিংকস</h3>
             <ul>
-                <li><a href="#">হোম</a></li>
-                <li><a href="#">আমাদের কালেকশন</a></li>
-                <li><a href="#">খরচ হিসাবকারী</a></li>
+                <li><a href="#hero">হোম</a></li>
+                <li><a href="#portfolio">আমাদের কালেকশন</a></li>
+                <li><a href="#estimator">খরচ হিসাবকারী</a></li>
+                <li><a href="#photos">গ্যালারি</a></li>
             </ul>
         </div>
 
-        <!-- ৩. যোগাযোগ -->
+        <!-- ৩. যোগাযোগ ও সোশ্যাল মিডিয়া -->
         <div class="footer-section">
             <h3>যোগাযোগ</h3>
-            <p>ঠিকানা: ইউসুফপুর, রাজশাহী</p>
-            <p>ফোন: +৮৮০ ১৭১২-XXXXXX</p>
-            <p>ইমেইল: info@rajshahinursery.com</p>
+            <p>ঠিকানা: হরিয়ান, রাজশাহী</p>
+            <p>ফোন: +8801733724364</p>
+            <p>ইমেইল: johurulmd992@gmail.com</p>
+            
+            <!-- সোশ্যাল মিডিয়া আইকন এখানে যুক্ত হয়েছে -->
+            <div class="social-icons" style="margin-top: 15px;">
+                <a href="https://www.facebook.com/rajshahimangonursary" target="_blank" style="color: #07b0ff; margin-right: 15px; font-size: 20px;"><i class="fab fa-facebook"></i></a>
+                <a href="https://wa.me/8801733724364" target="_blank" style="color: #00b40f; margin-right: 15px; font-size: 20px;"><i class="fab fa-whatsapp"></i></a>
+                <a href="https://www.instagram.com/123jojgfgjgcvxg" target="_blank" style="color: #a749ff; margin-right: 15px; font-size: 20px;"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.tiktok.com/@mdjohurul586" target="_blank" style="color: #000; font-size: 18px;"><i class="fab fa-tiktok"></i></a>
+            </div>
         </div>
     </div>
+    
     <div class="footer-bottom">
-        &copy; ২০২৬ ম্যাঙ্গো অ্যান্ড নার্সারি সার্ভিস। সর্বস্বত্ব সংরক্ষিত।
+        &copy; ২০২৬ রাজশাহী ম্যাঙ্গো & নার্সারি । সর্বস্বত্ব সংরক্ষিত।
     </div>
 </footer>
 
